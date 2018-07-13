@@ -1,0 +1,20 @@
+"""应用user定义URL模式"""
+
+from django.conf.urls import url
+from django.contrib.auth.views import login
+
+from . import views
+
+app_name = 'users'
+
+urlpatterns = [
+    # 登录页面
+    url(r'^login/$', login, {'template_name': 'users/login.html'}, name='login'),
+
+    # 注销页面
+    url(r'^logout/$', views.logout_view, name='logout'),
+
+    # 用户注册页面
+    url(r'^register/$', views.register, name='register'),
+
+]
